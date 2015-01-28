@@ -4,12 +4,21 @@
 
 [Linux]()
 
-*  [OS](linux-os.md)
+*  [General-OS](linux-os.md)
+*  [Desktop](linux-desktop.md)
 *  [Packages](linux-packages.md)
+*  [Chef](chef.md)
 *  [Servers](linux-servers.md)
 
-[AWS](aws.md)
-  
+[AWS]()
+
+[Sendy](sendy.md) 
+
+[VMs](vm.md)
+
+[Hugo Editing](hugo.md)
+
+[MDwiki](mdwiki.md)
 
 [gimmick:themechooser](Choose theme)
 

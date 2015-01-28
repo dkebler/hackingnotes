@@ -5,9 +5,6 @@
 		[
 		]
 	},
-	"buffers":
-	[
-	],
 	"build_system": "",
 	"command_palette":
 	{
@@ -16,10 +13,10 @@
 		[
 			[
 				"Package Control: ",
-				"Package Control: List Packages"
+				"Package Control: Install Package"
 			]
 		],
-		"width": 449.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -38,19 +35,90 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/home/david/websites/hackingnotes"
-	],
 	"file_history":
 	[
+		"/mnt/AllData/DGK/websites/hackingnotes/hackingnotes.sublime-project",
+		"/tmp/rsub-55xxvu/.bash_aliases",
+		"/tmp/rsub-ypbs9w/hello.rb",
+		"/tmp/rsub-7bjuq9/.bashrc",
+		"/tmp/rsub-d0tv84/.bashrc",
+		"/tmp/rsub-9wadv3/.bashrc",
+		"/tmp/rsub-sevp_e/.bash_aliases",
+		"/tmp/rsub-37z_yd/.bash_aliases",
+		"/tmp/rsub-fourgc/.bash_aliases",
+		"/tmp/rsub-lo8x_0/hosts",
+		"/tmp/rsub-rcry1f/hostname",
+		"/tmp/rsub-9nrovo/.bash_aliases",
+		"/tmp/rsub-a0gp9g/.bashrc",
 		"/home/david/websites/hackingnotes/navigation.md",
-		"/home/david/websites/hackingnotes/linux-servers.md",
-		"/home/david/websites/hackingnotes/linux-packages.md",
-		"/home/david/websites/hackingnotes/linux-os.md",
-		"/home/david/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/david/websites/hackingnotes/vm.md",
+		"/home/david/websites/hackingnotes/sendy.md",
 		"/home/david/websites/hackingnotes/sublime.md",
+		"/home/david/websites/hackingnotes/linux-packages.md",
+		"/tmp/rsub-qg5lml/.bashrc",
+		"/tmp/rsub-mtpskd/.bash_alias",
+		"/tmp/rsub-sdjl03/.bash_aliases",
+		"/tmp/rsub-q2t8w0/.bash_aliases",
+		"/tmp/rsub-lm4v7x/.bash_alias",
+		"/tmp/rsub-o29374/.bashrc",
+		"/tmp/rsub-w156hj/test",
+		"/tmp/rsub-d8g8mv/.bash_aliases",
+		"/tmp/rsub-2f1jb4/.bashrc",
+		"/tmp/rsub-gbsg4c/examples",
+		"/tmp/rsub-n92xs8/sources.list",
+		"/tmp/rsub-b_g4n0/hosts",
+		"/tmp/rsub-0mnttd/hosts",
+		"/tmp/rsub-zuznl6/sshd_config",
+		"/tmp/rsub-h8m96l/sources.list",
+		"/tmp/rsub-qfij66/sshd_config",
+		"/tmp/rsub-0olu6d/hostname",
+		"/tmp/rsub-4mck32/hosts",
+		"/tmp/rsub-b7o5yf/hostname",
+		"/tmp/rsub-q40m03/hostname",
+		"/tmp/rsub-18f481/temp",
+		"/tmp/rsub-0t36ve/sshd_config",
+		"/tmp/rsub-vcwcsl/sshd_config",
+		"/tmp/rsub-v9mp3d/sshd_config",
+		"/tmp/rsub-z8okml/ssh_config",
+		"/tmp/rsub-m8h2tc/ssh_config",
+		"/tmp/rsub-bkjgo2/temp",
+		"/home/david/.ssh/config",
+		"/tmp/rsub-j9c1sz/.profile",
+		"/tmp/rsub-bnwpap/test",
+		"/home/david/.config/sublime-text-3/Packages/rsub/rsub.sublime-settings",
+		"/tmp/rsub-hgow7t/10-mail.conf",
+		"/tmp/rsub-h4kytf/10-master.conf",
+		"/tmp/rsub-euxu9q/10-ssl.conf",
+		"/tmp/rsub-0xxsr4/15-lda.conf",
+		"/tmp/rsub-cner9d/20-imap.conf",
+		"/tmp/rsub-hni_if/20-lmtp.conf",
+		"/tmp/rsub-j2ee3k/20-managesieve.conf",
+		"/tmp/rsub-q27zne/20-pop3.conf",
+		"/tmp/rsub-6wc__l/auth-sql.conf.ext",
+		"/tmp/rsub-agppx8/dovecot-sql.conf.ext",
+		"/tmp/rsub-ijfmmx/dovecot.conf",
+		"/tmp/rsub-h2eudg/10-auth.conf",
+		"/tmp/rsub-1ttrk6/dovecot-sql.conf.ext",
+		"/tmp/rsub-aha5_p/10-logging.conf",
+		"/tmp/rsub-oegi3j/webmin-setup.out",
+		"/home/david/.config/sublime-text-3/Packages/User/Markdown.sublime-settings",
+		"/home/david/AllData/HW/HW-Admin/Bulk-Email/emails/September-2014/September-2014.html",
+		"/home/david/scripts/hwhugow.e",
+		"/home/david/scripts/expect launch bash script",
+		"/home/david/scripts/hwhugow",
+		"/home/david/scripts/rootserver2",
+		"/home/david/websites/hackingnotes/index.html",
+		"/home/david/websites/hackingnotes/.htaccess",
+		"/home/david/websites/hackingnotes/linux-os.md",
+		"/home/david/scripts/rootserver",
+		"/home/david/.config/sublime-text-3/Packages/SideBarEnhancements/Default (Linux).sublime-keymap",
 		"/home/david/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/david/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/david/.config/sublime-text-3/Packages/MarkdownEditing/Markdown (Standard).sublime-settings",
+		"/home/david/.config/sublime-text-3/Packages/MarkdownEditing/MultiMarkdown.sublime-settings",
+		"/home/david/.config/sublime-text-3/Packages/User/Markdown (Standard).sublime-settings",
+		"/home/david/.config/sublime-text-3/Packages/MarkdownEditing/README.md",
+		"/home/david/websites/hackingnotes/linux-servers.md",
 		"/home/david/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/david/websites/hackingnotes/index.md",
 		"/home/david/websites/hackingnotes/config.json",
@@ -68,12 +136,11 @@
 		"/home/david/scripts/doc-hugo-prompt",
 		"/home/david/scripts/dochugo.sh",
 		"/home/david/scripts/dochugo-prompt",
-		"/home/david/scripts/hwhugow",
 		"/home/david/Desktop/Start Hugo Server for HW"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -87,6 +154,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"diction",
+			"cntrl R",
+			"mark"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -101,21 +171,13 @@
 		"whole_word": false,
 		"wrap": true
 	},
-	"groups":
-	[
-		{
-			"sheets":
-			[
-			]
-		}
-	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 27.0
 	},
 	"input":
 	{
-		"height": 33.0
+		"height": 35.0
 	},
 	"layout":
 	{
@@ -144,10 +206,13 @@
 	{
 		"height": 0.0
 	},
-	"project": "hackingnotes.sublime-project",
-	"replace":
+	"output.sftp":
 	{
 		"height": 0.0
+	},
+	"replace":
+	{
+		"height": 50.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -172,13 +237,16 @@
 	},
 	"select_symbol":
 	{
-		"height": 0.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"",
+				"active"
+			]
 		],
-		"width": 0.0
+		"width": 404.0
 	},
-	"selected_group": 0,
 	"settings":
 	{
 	},
