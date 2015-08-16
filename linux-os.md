@@ -92,3 +92,6 @@ sudo usermod -G sudo -a <username>
 http://www.tecmint.com/add-users-in-linux/
 
 http://www.tecmint.com/usermod-command-examples/
+
+How to so any script (including alias) for a login shell
+http://askubuntu.com/questions/610052/how-can-i-preset-aliases-for-all-users

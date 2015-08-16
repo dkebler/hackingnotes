@@ -41,73 +41,65 @@ It's a full on bash script so doesn't need either python nor ruby!
 https://github.com/aurora/rmate
 
 
-
 ### SSH setup
 
-if an ssh server is not available then install one.  if one is installed it's probably set up for password accesss which is how you can enter intitially,  but then you want to use a keypair and turn off the password.
+See the [secure shell](linux-ssh.md) page for details about remotely connecting to other linux machines
 
-to change over the password default login to one using public/private keys
-edit this
-sudo rsub /etc/ssh/sshd_config    (assumes using rsub and sublime for editing)
- 
-Then change these lines to
+### Mail
+
+Basic install includes mailx, mailq, exim4 (MTA), and sendmail.
+
+For outbound mail sent via gmail smtp.  
+
+1. Will need to open outbound port 587 
+2. Add this to a file `~/.mailrc`
 ```
-# Disable protocol 1 RSA key based authentication
-RSAAuthentication no
-# Protocol 2 public key based authentication
-PubkeyAuthentication yes
-
-# Change to no to disable tunnelled clear text passwords
-PasswordAuthentication no
-```
-don't set the authorized_keys location, it will be the .ssh directory of the user you used to ssh.  (mostly likely user ubuntu).  Then restart the server
-
-```
-sudo service ssh restart
-```
-if you need to temporary have login access set the pass
-
-
-http://hacktux.com/passwordless/ssh
-
-
- Installation of the OpenSSH client and server applications is simple. To install the OpenSSH client applications on your Ubuntu system, use this command at a terminal prompt:
-```
-sudo apt-get install openssh-client
-```
-To install the OpenSSH server application, and related support files, use this command at a terminal prompt:
-```
-sudo apt-get install openssh-server
-```
-The openssh-server package can also be selected to install during the Server Edition installation process. 
-
-
-
-This is easy way to copy a public key to server.  Should go right into authorized_keys file
-
-```
-ssh-copy-id -i ~/.ssh/<name>.pub <Host Name from Config file>
-```
----------------
-
-Set up a config file on client for easy access
-http://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/
-http://linux.die.net/man/5/ssh_config
-Example
-
-```
-# command to launch is  $ssh vmus
-Host vmus
-#login user on server
-   user ubuntu  
-# IP address is machine specific or machine may have domain name - change it.
-   hostname 192.168.0.15
-# Next line deals with too many key files in client ssh directory
-   IdentitiesOnly=yes 
-#  This one points to specific identity file,
-# not needed if client doesn't have too many private key files   
-   IdentityFile ~/.ssh/dkebler
+set smtp-use-starttls
+set smtp="smtp://smtp.gmail.com:587"
+set smtp-auth=login
+set smtp-auth-user="someuser@gmail.com"
+set smtp-auth-password="someuser's gmail password"
+set from="A Name<eaddress@domain.com>"
+set ssl-verify=ignore
 ```
 
+3. For the gmail account your are using to forward mail turn on less secure apps at that gmail account https://www.google.com/settings/security/lesssecureapps
+4. Confiure exim4 with this wizard. Be sure to choose "internet site" `sudo dpkg-reconfigure exim4-config`  See link below for details.  Or edit the etc/exim4/update-exim4.conf.conf and then `service exim4 restart`
+5. Comment out dns entry in /etc/nsswitch.conf
 
+__Useful commands__
+
+Pipe some text to email
+` echo "Some Body Text" | mailx -v -s "Subject" "tosomeone@address.com"`
+
+See what is in the queue that didn't get sent
+`mailq`
+Send what is in the queue
+`sendmail -v -q`
+
+
+Something stuck in the queue.  Fastest solution to remove all emails in exim queue (less than 5sec) :
+do these commands :
+````
+cd /var/spool
+mv exim exim.old
+mkdir -p exim/input
+mkdir -p exim/msglog
+mkdir -p exim/db
+chown -R mail:mail exim
+/sbin/service exim4 restart
+````
+
+
+
+Useful links
+https://activespark.wordpress.com/2008/07/21/exim-spool-file-is-locked-another-process-is-handling-this-message/
+
+http://www.cyberciti.biz/faq/exim-remove-all-messages-from-the-mail-queue/
+
+http://www.unix.com/unix-for-advanced-and-expert-users/36937-problem-mailx-can-execute-but-email-not-received.html
+
+http://www.cyberciti.biz/tips/force-sendmail-to-deliver-a-message-in-sendmails-mail-queue.html
+
+https://www.digitalocean.com/community/tutorials/how-to-install-the-send-only-mail-server-exim-on-ubuntu-12-04
 

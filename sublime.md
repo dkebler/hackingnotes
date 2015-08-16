@@ -23,6 +23,7 @@ Delete Blank Lines
 FileDiffs
 rsub (for editing locally files on remote server)
 https://github.com/Drarok/rsub
+[Dependents](dependents.md)
 
 ssh to the server and wget this 
 
