@@ -7,10 +7,12 @@
 *  [General-OS](linux-os.md)
 *  [Secure Shell](linux-ssh.md)
 *  [Bash Scripting](linux-bash.md)
-*  [Desktop](linux-desktop.md)
-*  [Packages](linux-packages.md)
-*  [Chef](chef.md)
 *  [Servers](linux-servers.md)
+*  [Desktop](linux-desktop.md)
+*  [Backup](linux-backup.md)
+*  
+*  [Packages](linux-packages.md)
+*  [Deployment - Chef, etc](chef.md)
 
 [AWS]()
 
@@ -22,7 +24,11 @@
 
 [VMs](vm.md)
 
-[Hugo Editing](hugo.md)
+[Coding]()
+
+* [Hugo](hugo.md)
+* [Node.js]()
+     [NPM](npm.md)
 
 [MDwiki](mdwiki.md)
 
