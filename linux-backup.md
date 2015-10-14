@@ -45,13 +45,19 @@ deb http://ppa.launchpad.net/duplicity-team/ppa/ubuntu trusty main
 
 Create IAM user and policies plus backup bucket(s).
 
-Install AWS-CLI, install pip then aws-cli
+Install AWS-CLI, 
+install python if need be.  need 2.7.6+
+install pip then aws-cli
 apt-get install python-pip
 pip install awscli  (pip install --upgrade awscli
 pip install --upgrade awscli
 )
 Install S3cmd (for duplicity-backup at least for now)
 pip install s3cmd
+
+Install boto 2.x
+pip install boto
+
 run s3cmd --configure   and add the access and secret keys
 Do same, add credentials to ~/.aws/
 
