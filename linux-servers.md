@@ -64,13 +64,47 @@ set ssl-verify=ignore
 ```
 
 3. For the gmail account your are using to forward mail turn on less secure apps at that gmail account https://www.google.com/settings/security/lesssecureapps
-4. Confiure exim4 with this wizard. Be sure to choose "internet site" `sudo dpkg-reconfigure exim4-config`  See link below for details.  Or edit the etc/exim4/update-exim4.conf.conf and then `service exim4 restart`
+4. Confiure exim4 with this wizard. Be sure to choose "internet site" `sudo dpkg-reconfigure exim4-config`  See link below for details.  Or edit the etc/exim4/update-exim4.conf.conf and then `service exim4 restart`  Example below for local only outbound mail from server processes on server.
+````
+# /etc/exim4/update-exim4.conf.conf
+#
+# Edit this file and /etc/mailname by hand and execute update-exim4.conf
+# yourself or use 'dpkg-reconfigure exim4-config'
+#
+# Please note that this is _not_ a dpkg-conffile and that automatic changes
+# to this file might happen. The code handling this will honor your local
+# changes, so this is usually fine, but will break local schemes that mess
+# around with multiple versions of the file.
+#
+# update-exim4.conf uses this file to determine variable values to generate
+# exim configuration macros for the configuration file.
+#
+# Most settings found in here do have corresponding questions in the
+# Debconf configuration, but not all of them.
+#
+# This is a Debian specific file
+
+dc_eximconfig_configtype='internet'
+dc_other_hostnames='aws-cloud-kebler'
+dc_local_interfaces='127.0.0.1 ; ::1'
+dc_readhost=''
+dc_relay_domains=''
+dc_minimaldns='false'
+dc_relay_nets=''
+dc_smarthost=''
+CFILEMODE='644'
+dc_use_split_config='false'
+dc_hide_mailname=''
+dc_mailname_in_oh='true'
+dc_localdelivery='mail_spool'
+````
+
 5. Comment out dns entry in /etc/nsswitch.conf
 
 __Useful commands__
 
 Pipe some text to email
-` echo "Some Body Text" | mailx -v -s "Subject" "tosomeone@address.com"`
+` echo "Some Body Text" | mailx -s "Subject" "tosomeone@address.com"`
 
 See what is in the queue that didn't get sent
 `mailq`
