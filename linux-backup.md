@@ -72,11 +72,23 @@ ln -s /root/backup-scripts/backup.cron /etc/cron.d/backup
 
 Create and IAM policy.  Attach policy below to a new or exisiting IAM account.  
 Set up the .aws credentials and config files.  Can use default profile or named profile.
+
+make a .my.cnf file in root with user/passwords for
+
+
 http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
+
+
+
+
+
+
+
+
 
 This policy will allow access to backup bucket and to ec2 snapshot commands
 replace with your bucket name (can be more than one)
-
+```
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -131,5 +143,5 @@ replace with your bucket name (can be more than one)
         }
     ]
 }
-
+```
 

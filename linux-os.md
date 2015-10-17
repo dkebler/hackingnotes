@@ -95,3 +95,9 @@ http://www.tecmint.com/usermod-command-examples/
 
 How to so any script (including alias) for a login shell
 http://askubuntu.com/questions/610052/how-can-i-preset-aliases-for-all-users
+
+## Easy Kill Program
+
+if using gnome, can use xkill, set it up as a keyboard shortcut,  envoke shortcut, click on offending program....killed.
+
+http://community.linuxmint.com/tutorial/view/30
