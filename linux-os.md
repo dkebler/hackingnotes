@@ -1,5 +1,7 @@
 # Linux OS 
 
+## Set Static IP
+
 For manual wired connections be sure to delete any extra line in the address window or the save button will remain greyed.
 
 

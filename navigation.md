@@ -10,9 +10,13 @@
 *  [Servers](linux-servers.md)
 *  [Desktop](linux-desktop.md)
 *  [Backup](linux-backup.md)
-*  
 *  [Packages](linux-packages.md)
 *  [Deployment - Chef, etc](chef.md)
+*  [Raspberry Pi](raspbian.md)
+
+[Tools]()
+
+*  [Git](git.md)
 
 [AWS]()
 

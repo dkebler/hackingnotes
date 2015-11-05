@@ -61,4 +61,36 @@ Later, once the USB is booted I also install qtfsarchiver so I can restore my fs
 If restoring a fsarchiver archive to a partition you will need to ask for a new uuid after restore (in gparted) and to edit the fstab accordingly as well as delete/fix any refind_linux.conf in the /boot directory.
 
 
- 
+ --
+ Fixing lost motherboard NVRAM setting (firmware no longer lists REFIND as bootable choice)
+
+1. mount efi(esp) partiton at /media/david/EFI/boot/efi and make a copy of efi/esp partition
+2.  Download the latest refind bin.zip file and extract to desktop
+3.  CD into extracted directory 
+
+sudo ./install.sh --root /media/david/EFI/boot/efi
+
+If it complains about not running efibootmgr properly you probably need to install it. I did. Then just rerun install script.
+
+sudo apt-get install efibootmgr
+
+-------------------------------------
+
+--usedefault device-file    You can install rEFInd to a disk using the default/fallback filename of EFI/BOOT/bootx64.efi (and EFI/BOOT/bootia32.efi, if the 32-bit build is available) using this option. The device-file should be an unmounted ESP, or at least a FAT partition, as in --usedefault /dev/sdc1. Your computer's NVRAM entries will not be modified when installing in this way. The intent is that you can create a bootable USB flash drive or install rEFInd on a computer that tends to "forget" its NVRAM settings with this option. This option is mutually exclusive with --notesp and --root.
+
+-------------
+
+If restoring to another partition a copy which you want to boot
+
+After restoring 4 tasks
+
+*  FIRST edit the partition label (as it will be the same as the backup up partition) and might be mounted over the root /
+*  Then use gparted to give the restored partiton (unmount if mounted) a new uuid so it doesn't conflict with the exiting one from which the backup was taken.
+*  edit or delete refind_linux.conf file in the /boot directory of the restored partition.  If you decide to edit the uuid in the entries must match the new UUID.
+
+*  edit the etc/fstab file and change the / root partition to the new label or uuid
+
+after booting into new partition
+* change wallpaper
+* change icon indicating what version you are looking at
+* 

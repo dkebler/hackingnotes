@@ -2,6 +2,72 @@
 
 ## VMware
 
+### Install
+
+http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2053973
+
+To install VMware Player on a Linux host:
+
+Note: VMware Player for Linux is available as a .bundle download from the VMware Download Center. The Linux bundle installer starts a GUI wizard on most Linux distributions. On some Linux distributions, the bundle installer starts a command-line wizard instead of a GUI wizard.
+
+    Log in to the Linux host with the user account that you plan to use with VMware Player.
+    Open a terminal interface. For more information, see Opening a command or shell prompt (1003892).
+    Change to root. For example:
+
+    su root
+
+Note: The command that you use depends on your Linux distribution and configuration.
+
+Change directories to the directory that contains the VMware Player bundle installer file. The default location is the Download directory for the user which initiated the download from the VMware Download Center.
+Run the appropriate Player installer file for the host system. For example:
+
+    sh VMware-Player-e.x.p-xxxx.architecture.bundle --option
+
+Where e.x.p-xxxx is the version and build numbers, architecture is i386 or x86_64, and option is a command line option.
+
+The command line options available are:
+
+        --gtk
+        Opens the GUI-based VMware installer, which is the default option.
+
+        --console
+        Use the terminal for installation.
+
+        --custom
+        Use this option to customize the locations of the installation directories and set the hard limit for the number of open file descriptors.
+
+        --regular
+        Shows installation questions that have not been answered before or are required. This is the default option.
+
+        --ignore-errors or -I
+        Allows the installation to continue even if there is an error in one of the installer scripts. Because the section that has an error does not complete, the component might not be properly configured.
+
+        --required
+        Shows the license agreement only and then proceeds to install Player.
+
+Accept the license agreement.
+
+Note: If you are using the --console option or installing VMware Player on a Linux host that does not support the GUI wizard, press Enter to scroll through and read the license agreement or type q to skip to the yes/no prompt.
+
+Follow the on-screen instructions or prompts to finish the installation.
+Restart the Linux host.
+
+
+After installation
+On Windows host systems:
+
+The installer creates a desktop shortcut, a quick launch shortcut, or a combination of these options in addition to a Start Menu item.
+To start VMware Player on a Windows host system, select Start > Programs > VMware Player.
+
+On Linux host systems:
+
+VMware Player can be started from the command line on all Linux distributions.
+On some Linux distributions, VMware Player can be started in the GUI from the System Tools menu under Applications.
+To start VMware Player on a Linux host system from the command line, run the vmplayer command in a terminal window. For more information, see Opening a command or shell prompt (1003892). For example:
+
+    /usr/bin/vmplayer &
+
+---------------
 
 Issue with missing machines in list in VMware Player on linux host.
 https://communities.vmware.com/thread/305983

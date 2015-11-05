@@ -8,6 +8,13 @@ https://launchpad.net/~git-core/+archive/ubuntu/ppa
 ppa:git-core/ppa
 then update and then install
 
+from command line use apt-add
+http://www.webupd8.org/2014/10/how-to-add-launchpad-ppas-in-debian-via.html
+
+     sudo apt-get install software-properties-common python-software-properties
+
+     sudo add-apt-repository ppa:some/ppa
+
 For windows use download
 https://git-scm.com/download/win
 
@@ -30,6 +37,22 @@ Now from your local machine (with the private key from the keypair you just used
 
 From that repo you add other user keys and add repos and user access in the config file, then just commit and push and you have new repos and can control access all from a this git repo!
 
+### branch on command line prompt
+
+http://martinvalasek.com/blog/current-git-branch-name-in-command-prompt
+
+If you’re working in Linux (I have tested with Ubuntu), just add the following code to .bashrc file in your home directory:
+
+    function parse_git_branch () {
+      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+    }
+     
+    RED="\[\033[0;31m\]"
+    YELLOW="\[\033[0;33m\]"
+    GREEN="\[\033[0;32m\]"
+    NO_COLOR="\[\033[0m\]"
+
+    PS1="$GREEN\u@\h$NO_COLOR:\w$RED\$(parse_git_branch)$NO_COLOR\$ "
 
 
 
