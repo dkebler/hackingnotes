@@ -76,12 +76,38 @@ then install latest or stable or specific version
     sudo n stable
     sudo n 5.x.x
 
-upgrade npm as above, DONT use update as 3.x.x is currently pre release and will revert to 2.x.x.  Current Releases here https://github.com/npm/npm/releases
+For npm here are the current releases here https://github.com/npm/npm/releases or try these
+
+    npm dist-tags ls npm
+    npm view npm@latest version
+    npm view npm@next version
+
+prior to 3.4.1 as the latest release be explicit
 
     sudo npm install -g npm@3.x.x
 
+with 3.4.1 and above as the latest release you should get away with a simple.
 
-for manual install try this
+    sudo npm install -g npm
+
+to get the latest (which of course is not the "latest" which is really "next")
+
+    sudo npm install -g npm@next
+
+
+if npm install happens to get trashed.
+
+First delete the npm directory likely in ```/usr/local/lib/node_modules``` if you are running *nix.   I had to do this or the reinstall kept throwing errors.
+
+Then get the script mentioned on the github repo readme
+https://github.com/npm/npm
+https://www.npmjs.com/install.sh
+
+The curl download and run didn't work for me I had to download the script and then run it.
+
+--------
+
+for manual install of node try this
 
 http://stackoverflow.com/questions/23082242/how-to-install-nodejs-0-10-26-from-binaries-in-ubuntu/23084499#23084499
 

@@ -45,7 +45,7 @@ deb http://ppa.launchpad.net/duplicity-team/ppa/ubuntu trusty main
 
 Create IAM user and policies plus backup bucket(s).
 
-Install AWS-CLI, 
+Install AWS-CLI,
 install python if need be.  need 2.7.6+
 install pip then aws-cli
 apt-get install python-pip
@@ -145,3 +145,23 @@ replace with your bucket name (can be more than one)
 }
 ```
 
+## Partition Imaging
+
+Use fsarchiver and qt4-fsarchiver to make a compressed image on any partition.
+https://sourceforge.net/projects/qt4-fsarchiver/
+
+Currently saving min-primary partition images to sda4 which is labeled trantor-images
+
+Boot to alternative image (mint-mirror or USB)
+Make sure the mint-primary image is unmounted.
+Take a mint primary image (sdb3) with qt4-fsarchiver
+Then boot back into mint-primary and restore that image to mint-mirror (sda1)
+
+Using  Gparted program
+-      change name/label of sda1 to Mint-Mirror
+-      generate a new UUID
+Mount the Mint-Mirror Partition
+-    Enter that partition/folder.  BE SURE you are there and not in mint-primary they will look idential!
+-    In /etc  change name of fstab to fstab-mint-primary and fstab-mint-mirror to just fstab
+
+Try rebooting and entering Mint-Mirror instead.  If successful change the name of file in the / to say "mint mirror" in the desktop as well.  Also change the wallpaper so it's easy to know you've booted into the mirror.

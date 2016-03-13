@@ -26,7 +26,7 @@ To more easily edit files (using sublime text)  I added rsub package to sublime 
 
 https://github.com/Drarok/rsub and see also the [Sublime](sublime.md) page.  
 
-Then ssh to the server and wget this 
+Then ssh to the server and wget this
 
 ```
 sudo wget -O /usr/local/bin/rsub https://raw.github.com/aurora/rmate/master/rmate
@@ -51,7 +51,7 @@ Basic install includes mailx, mailq, exim4 (MTA), and sendmail.
 
 For outbound mail sent via gmail smtp.  
 
-1. Will need to open outbound port 587 
+1. Will need to open outbound port 587
 2. Add this to a file `~/.mailrc`
 ```
 set smtp-use-starttls
@@ -185,3 +185,52 @@ You can find the list international country codes (although not all of the count
 Once all of the information is in the configuration file, restart ntp:
 
 sudo service ntp restart
+
+## SSL
+
+Create key and CSR using openssl
+
+Once you get back your crt and ca-bundle put this in ssl config for the site in apache2
+
+
+NB:   ca-bundle is the cert chain back to the root authority
+
+      <IfModule mod_ssl.c>
+      <VirtualHost *:443>
+      ServerName cloud.kebler.net
+
+      DocumentRoot /var/www/owncloud
+
+      SSLEngine on
+      SSLCertificateFile /etc/apache2/ssl/cloud.kebler.net.crt
+      SSLCertificateKeyFile /etc/apache2/ssl/cloud.kebler.net.key
+      SSLCertificateChainFile /etc/apache2/ssl/cloud.kebler.net.ca-bundle
+      <FilesMatch "\.(cgi|shtml|phtml|php)$">
+       SSLOptions +StdEnvVars
+      </FilesMatch>
+      <Directory /usr/lib/cgi-bin>
+       SSLOptions +StdEnvVars
+      </Directory>
+      BrowserMatch "MSIE [2-6]" \nokeepalive ssl-unclean-shutdown \downgrade-1.0 force-response-1.0
+      # MSIE 7 and newer should be able to use keepalive
+      BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
+
+
+Add a cert to AWS IAM if need be with AWS CLI like this
+
+      aws iam upload-server-certificate --profile RSK --server-certificate-name cloud.kebler.net --certificate-body file://cloud.kebler.net.crt --private-key file://cloud.kebler.net.key --certificate-chain file://cloud.kebler.net.ca-bundle
+
+
+      aws iam get-server-certificate --profile RSK --server-certificate-name cloud.kebler.net
+
+      Returns
+      {
+          "ServerCertificateMetadata": {
+              "ServerCertificateId": "ASCAIFAOF7ETNBYKEOMSU",
+              "Expiration": "2018-12-16T23:59:59Z",
+              "UploadDate": "2016-01-23T20:10:42.637Z",
+              "Arn": "arn:aws:iam::245206923545:server-certificate/cloud.kebler.net",
+              "Path": "/",
+              "ServerCertificateName": "cloud.kebler.net"
+          }
+      }
