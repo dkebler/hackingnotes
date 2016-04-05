@@ -1,4 +1,4 @@
-# Linux OS 
+# Linux OS
 
 ## Set Static IP
 
@@ -77,7 +77,7 @@ if you delete any you must either remove it manually or restart your shell.  sou
 
 ## Users
 
-edit etc/skel  directory so that you have any current .bashrc file there 
+edit etc/skel  directory so that you have any current .bashrc file there
 might as well include the .bash_aliases file there now.
 
 edit /etc/adduser.conf for defaults for adding a new user.
@@ -103,3 +103,18 @@ http://askubuntu.com/questions/610052/how-can-i-preset-aliases-for-all-users
 if using gnome, can use xkill, set it up as a keyboard shortcut,  envoke shortcut, click on offending program....killed.
 
 http://community.linuxmint.com/tutorial/view/30
+
+## Starup
+
+will tell you what starup you are using `/sbin/init --version`
+
+process editor, must install `sudo sysv-rc-conf`
+
+for upstart
+ `echo manual > /etc/init/<service>.override; chmod 644 /etc/init/<service>.override`
+ delete the override file to go back to manual
+
+# Groups and Users
+
+List all in a group
+`getent group <groupname>;`
