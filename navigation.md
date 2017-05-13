@@ -5,6 +5,7 @@
 [Linux]()
 
 *  [General-OS](linux-os.md)
+*  [Build From Scratch](linux-scratch.md)
 *  [Secure Shell](linux-ssh.md)
 *  [Bash Scripting](linux-bash.md)
 *  [Servers](linux-servers.md)
@@ -24,7 +25,7 @@
 *  [EC2 Machines](aws-ec2.md)
 *  [S3 Storage](aws-s3.md)
 
-[Sendy](sendy.md) 
+[Sendy](sendy.md)
 
 [VMs](vm.md)
 
@@ -32,9 +33,9 @@
 
 * [Hugo](hugo.md)
 * [Node.js](node.md)
-     
+
 [MDwiki](mdwiki.md)
 
 [gimmick:themechooser](Choose theme)
 
-[gimmick:theme](flatly)    <!-- set the default theme inside the () --> 
+[gimmick:theme](flatly)    <!-- set the default theme inside the () -->
