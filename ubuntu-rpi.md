@@ -54,6 +54,9 @@ Host sbc
    IdentityFile ~/.ssh/sysadmin
 ```
 
+check ssh works...then
+sudo nano /etc/ssh/sshd_config, remove password access
+
 remove ubuntu user
 sudo userdel ubuntu
 sudo rm -rf /home/ubuntu
@@ -61,6 +64,7 @@ sudo rm -rf /home/ubuntu
 from home
 git clone https://github.com/dkebler/.kbd-aliases.git
 move .bash_aliases up a directory
+export EDITOR=nano
 
 install mc   (midnight commander for text based filemanger)
 
@@ -69,35 +73,27 @@ ppa git-core
 update
 install git
 
+load in credential store
+git config --global credential.helper store
+
 bashrc
 # ignore https certs when cloning cause they are self-signed
 export GIT_SSL_NO_VERIFY=1
-
-load in credential store
-git config --global credential.helper libsecret
-
-
-**SAVE THIS AS BASE IMAGE NOW**
-
-remove authorized_keys and copy over new key other than sysadmin
-ssh-copy-id -i ~/.ssh/sysadmin.pub sbc
-check ssh works
-sudo nano /etc/ssh/sshd_config, remove password access
-
-
-add permissions
-
-### Software
 
 put third party software in /opt
 opt/   
 sudo chown root:sysadmin /opt
 sudo chmod 775 /opt
 
-# Using Debian, as root, works with arm now
+
+**SAVE THIS AS BASE IMAGE NOW**
+
+### Software
+
+#### Nodejs
 sudo -i
 curl -sL https://deb.nodesource.com/setup_7.x | bash -
-apt-get install -y nodejs
+install nodejs
 
 move globals
 mkdir /opt/npm-global
@@ -105,13 +101,25 @@ npm config set prefix '/opt/npm-global'
 # add path for moved npm globals to .profile
 PATH="/opt/npm-global/bin:"$PATH
 
-
 npmig n
 npmig pm2
 
+### Docker
+
+install docker
+$ curl -sSL get.docker.com | sh
+
+## i2c access
+
+install i2c-tools
+
+To enable userspace access to I2C ensure that /etc/modules contains the following line:
+i2c-dev
+
+add sysadmin to i2c group
+re
+
 for node-gyp and other compilation
-install globally
-npmig node-gyp
 gcc and make
 install build-essential
 install older python for node-gyp
@@ -122,13 +130,6 @@ for existing project builds set npm variable
 npm config set python /usr/bin/python2.7
 
 
-install docker
-$ curl -sSL get.docker.com | sh
-
-
-## i2c access
-
-install i2c-tools
 
 
 
