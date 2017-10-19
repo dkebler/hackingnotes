@@ -50,6 +50,10 @@ should work without password, if so
 change to no password using
 `essh`
 
+for root ssh key access
+make .ssh directory in /root,  copy the authorized_keys from sysadmin to there
+
+
 now update git via ppa
 `ppa git-core`
 `update`
@@ -135,11 +139,8 @@ export PATH="/opt/npm-global/bin:"$PATH
 npmig n
 npmig pm2
 
-
 ### IDE
-visualcodesudio, https://code.headmelted.com/#linux-header,
-manual install download arm.deb
-if need be  install libxssl1 if missing (was not on 16.04)
+installa geany
 
 
 ### i2c
@@ -158,6 +159,9 @@ sudo usermod -a -G i2c sysadmin
 ### git-cola
 installa git-cola then remove files from user/bin and replace with links from /bin of repo cloned to /opt
 in /opt    git clone https://github.com/git-cola/git-cola.git
+git config --global cola.terminal "mate-terminal"
+git config --global  gui.editor geany
+
 
 subrepo
 git clone https://github.com/ingydotnet/git-subrepo.git
@@ -169,8 +173,7 @@ installa synaptic
 
 ### node-gyp
 
-for node-gyp and other compilation
-gcc and make
+should all be loaded not necessary
 installa build-essential
 installa older python for node-gyp
 installa python2.7
@@ -179,8 +182,53 @@ node-gyp --python /usr/bin/python2.7
 for existing project builds set npm variable
 npm config set python /usr/bin/python2.7
 
+# pigpio
+in /opt
+git clone https://github.com/joan2937/pigpio
+cd pigpio
+make
+check version
+pigpiod -v
+run tests
+sudo ./x_pigpio # check C I/F
+
+sudo make install
+sudo pigpiod    # start daemon
+more tests
+./x_pigpiod_if2 # check C      I/F to daemon
+./x_pigpio.py   # check Python I/F to daemon
+./x_pigs        # check pigs   I/F to daemon
+./x_pipe        # check pipe   I/F to daemon
 
 ### docker
 
 installa docker
 $ curl -sSL get.docker.com | sh
+
+
+### running gpio
+
+----
+Here is my solution which is a bit more secure but still requires using sudo but will work for headless where entering a sudo password is not an option.
+
+Have a sudoer account for running code  in my case `sysadmin` that can ONLY be entered via ssh with with a keypair.
+
+Now
+Add this a file, say `gpio-node`, in /etc/sudoers.d/
+```
+# group gpio can also run node for headless access to pigpio library
+%gpio ALL=NOPASSWD: /usr/local/bin/node
+```
+make sure (add) `sysadmin` is in the `gpio` group
+note:  don't use ` /usr/bin/node` as NOPASSWD doesn't work with links! and that's a link not `node` itself.  Any issue make sure that /usr/local/bin is before  /usr/bin in your path.  BTW that "node" links to nodejs in the same directory that is hard linked to node in /usr/local/bin.
+
+now in your package.json write any scripts which will call pigpio library with `sudo node`  instead of `node`.   You shouldn't be asked for a  password.
+
+As extra security since I only have a single user on my headless machine I  chowned the group to `node` and removed running node by everyone.   
+```
+sudo chmod 754 /usr/local/bin/node
+sudo chown root:sysadmin /usr/local/bin/node
+
+-rwxr-xr-- 1 root sysadmin 23888496 May  3 15:39 node*
+```
+of note you can still run node without sudo fine albiet with the last suggestion only from `sysadmin`

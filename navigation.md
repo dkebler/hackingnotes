@@ -14,6 +14,10 @@
 *  [Packages](linux-packages.md)
 *  [Deployment - Chef, etc](chef.md)
 *  [Raspberry Pi](raspbian.md)
+*  [Raspberry Pi](raspbian.md)
+*  [Mate Pi](mate-pi.md)
+*  [Gateway](linux-gateway.md)
+
 
 [Tools]()
 
